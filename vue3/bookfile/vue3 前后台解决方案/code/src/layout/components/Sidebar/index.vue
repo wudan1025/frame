@@ -1,7 +1,12 @@
+<!--
+ * @LastEditors: wudan01
+ * @description: 文件描述
+-->
 <template>
   <div class="">
     <div class="logo-container">
       <el-avatar
+        size="44"
         :size="logoHeight"
         shape="square"
         src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png"
