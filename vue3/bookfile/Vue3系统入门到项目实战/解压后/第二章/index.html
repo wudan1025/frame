@@ -30,12 +30,12 @@
       },
     },
     template: `
-      <div>
-        <div @click.ctrl.exact="handleClick">123</div>
-        // 绑定多个事件
-        <button @click="handleBtnClick1(1,$event),handleBtnClick2()"></button>
-      </div>
-    `
+    <div>
+      <div @click.ctrl.exact="handleClick">123</div>
+      // 绑定多个事件
+      <button @click="handleBtnClick1(1,$event),handleBtnClick2()"></button>
+    </div>
+  `
   });
 
   const vm = app.mount('#root');
