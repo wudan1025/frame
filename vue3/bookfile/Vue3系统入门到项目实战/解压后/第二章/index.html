@@ -1,54 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>lesson 8</title>
+  <title>lesson 12</title>
   <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
   <div id="root"></div>
 </body>
 <script>
-  // data & methods & computed & watcher
-  // computed 和 method 都能实现的一个功能，建议使用 computed，因为有缓存
-  // computed 和 watcher 都能实现的功能，建议使用 computed 因为更加简洁
+  // event, $event
+  // 事件修饰符：stop, prevent, capture, self, once, passive
+  // 按键修饰符：enter, tab, delete, esc, up, down, left, right
+  // 鼠标修饰符：left, right, middle
+  // 精确修饰符：exact
   const app = Vue.createApp({
-    data() {
-      return {
-        message: "hello world",
-        count: 2,
-        price: 5,
-        newTotal: 10,
-      }
-    },
-    watch: {
-      // price 发生变化时，函数会执行
-      price(current, prev) {
-        this.newTotal = current * this.count;
-      }
-    },
-    computed: {
-      // 当计算属性依赖的内容发生变更时，才会重新执行计算
-      total() {
-        return Date.now() + this.count;
-        // return this.count * this.price
-      }
-    },
     methods: {
-      formatString(string) {
-        return string.toUpperCase();
+      handleClick() {
+        console.log('click')
       },
-      // 只要页面重新渲染，才会重新计算
-      getTotal() {
-        return Date.now();
-        // return this.count * this.price;
+      handleBtnClick1(value, $event) {
+        console.log('1')
+      },
+      handleBtnClick2() {
+        console.log('2')
       },
     },
     template: `
-     <div> {{message}} {{newTotal}} </div>
+      <div>
+        <div @click.ctrl.exact="handleClick">123</div>
+        // 绑定多个事件
+        <button @click="handleBtnClick1(1,$event),handleBtnClick2()"></button>
+      </div>
     `
   });
+
   const vm = app.mount('#root');
 </script>
+
 </html>
