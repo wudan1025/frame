@@ -1,3 +1,7 @@
+<!--
+ * @LastEditors: wudan01
+ * @description: 文件描述
+-->
 <template>
   <div class="">
     <div class="logo-container">
@@ -7,7 +11,7 @@
         src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png"
       />
       <h1 class="logo-title" v-if="$store.getters.sidebarOpened">
-        imooc-admin
+        {{ $t('msg.test') }}
       </h1>
     </div>
     ...
