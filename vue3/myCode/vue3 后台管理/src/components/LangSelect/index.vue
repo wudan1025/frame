@@ -1,3 +1,7 @@
+<!--
+ * @LastEditors: wudan01
+ * @description: 文件描述
+-->
 <template>
   <el-dropdown
     trigger="click"
@@ -5,7 +9,7 @@
     @command="handleSetLanguage"
   >
     <div>
-      <el-tooltip content="国际化" :effect="effect">
+      <el-tooltip :content="$t('msg.navBar.lang')" :effect="effect">
         <svg-icon icon="language" />
       </el-tooltip>
     </div>
@@ -47,6 +51,6 @@ const i18n = useI18n();
 const handleSetLanguage = (lang) => {
   i18n.locale.value = lang;
   store.commit('app/setLanguage', lang);
-  ElMessage.success('更新成功');
+  ElMessage.success(i18n.t('msg.toast.switchLangSuccess'));
 };
 </script>
