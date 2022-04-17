@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 18</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return { count: 1 }
+    },
+    template: `
+      <counter v-model:app="count" />
+    `
+  });
+
+  app.component('counter', {
+    // 默认是 modelValue ，可以通过:修改
+    props: ['app'],
+    methods: {
+      handleClick() {
+        // emit 事件名称 必须固定
+        this.$emit('update:app', this.app + 3);
+      }
+    },
+    template: `
+      <div @click="handleClick">{{app}}</div>
+    `
+  });
+
+  const vm = app.mount('#root');
+</script>
+
+</html>
