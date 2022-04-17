@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 20</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+
+  // 具名插槽 可以将插槽分开调用
+  const app = Vue.createApp({
+    template: `
+      <layout>
+        // 简写
+        <template #header>
+        <template v-slot:header>
+          <div>header</div>
+        </template>
+        </template>
+        <template v-slot:footer>
+          <div>footer</div>
+        </template>
+      </layout>
+    `
+  });
+
+  app.component('layout', {
+    template: `
+      <div>
+        <slot name="header"></slot>
+        <div>content</div>
+        <slot name="footer"></slot>
+      </div>
+    `
+  });
+
+  const vm = app.mount('#root');
+</script>
+
+</html>

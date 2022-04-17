@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 21</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // 异步组件: 是异步执行某些组件的逻辑，这叫做异步组件
+
+  const app = Vue.createApp({
+    template: `
+      <div>
+        <common-item />
+        <async-common-item />
+      </div>
+    `
+  });
+
+  // 同步组件
+  app.component('common-item', {
+    template: `<div>hello world</div>`
+  });
+
+  // 异步组件
+  // 把大型项目拆成小的代码模块
+  app.component('async-common-item', Vue.defineAsyncComponent(() => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({
+          template: `<div>this is an async component</div>`
+        })
+      }, 4000)
+    })
+  }))
+
+  const vm = app.mount('#root');
+</script>
+
+</html>
