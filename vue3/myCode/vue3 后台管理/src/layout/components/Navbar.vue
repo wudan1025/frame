@@ -1,12 +1,13 @@
-<!--
- * @LastEditors: wudan01
- * @description: 文件描述
--->
 <template>
   <div class="navbar">
     <hamburger class="hamburger-container" />
-    <breadcrumb class="breadcrumb-container" />
+    <breadcrumb id="guide-breadcrumb" class="breadcrumb-container" />
+
     <div class="right-menu">
+      <!-- <guide class="right-menu-item hover-effect" /> -->
+      <header-search class="right-menu-item hover-effect"></header-search>
+      <screenfull class="right-menu-item hover-effect" />
+      <theme-picker class="right-menu-item hover-effect"></theme-picker>
       <lang-select class="right-menu-item hover-effect" />
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -21,13 +22,13 @@
         <template #dropdown>
           <el-dropdown-menu class="user-dropdown">
             <router-link to="/">
-              <el-dropdown-item> 首页 </el-dropdown-item>
+              <el-dropdown-item> {{ $t('msg.navBar.home') }} </el-dropdown-item>
             </router-link>
             <a target="_blank" href="">
-              <el-dropdown-item>课程主页</el-dropdown-item>
+              <el-dropdown-item>{{ $t('msg.navBar.course') }}</el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="logout">
-              退出登录
+              {{ $t('msg.navBar.logout') }}
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -37,8 +38,14 @@
 </template>
 
 <script setup>
-import LangSelect from '@/components/LangSelect';
 import Hamburger from '@/components/Hamburger';
+import Breadcrumb from '@/components/Breadcrumb';
+import LangSelect from '@/components/LangSelect';
+import ThemePicker from '@/components/ThemePicker';
+import Screenfull from '@/components/Screenfull';
+import HeaderSearch from '@/components/HeaderSearch';
+// import Guide from '@/components/Guide';
+
 import {} from 'vue';
 import { useStore } from 'vuex';
 
@@ -55,6 +62,7 @@ const logout = () => {
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
   .hamburger-container {
     line-height: 46px;
     height: 100%;
@@ -62,29 +70,21 @@ const logout = () => {
     cursor: pointer;
     // hover 动画
     transition: background 0.5s;
-    float: left;
 
     &:hover {
       background: rgba(0, 0, 0, 0.1);
     }
   }
+
+  .breadcrumb-container {
+    float: left;
+  }
+
   .right-menu {
     display: flex;
     align-items: center;
     float: right;
     padding-right: 16px;
-
-    ::v-deep .avatar-container {
-      cursor: pointer;
-      .avatar-wrapper {
-        margin-top: 5px;
-        position: relative;
-        .el-avatar {
-          --el-avatar-background-color: none;
-          margin-right: 12px;
-        }
-      }
-    }
 
     ::v-deep .right-menu-item {
       display: inline-block;
@@ -95,6 +95,23 @@ const logout = () => {
 
       &.hover-effect {
         cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.025);
+        }
+      }
+    }
+
+    ::v-deep .avatar-container {
+      cursor: pointer;
+      .avatar-wrapper {
+        margin-top: 5px;
+        position: relative;
+        .el-avatar {
+          --el-avatar-background-color: none;
+          margin-right: 12px;
+        }
       }
     }
   }

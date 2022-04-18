@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 17</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // Non-prop 属性
+  // 用在 样式传递
+  const app = Vue.createApp({
+    template: `
+      <div>
+        <counter style:'color:red' msg="hello" msg1="hello1" />
+      </div>
+    `
+  });
+
+  app.component('counter', {
+    // 不继承父组件传递的 non-prop 属性
+    // inheritAttrs: false,
+    mounted() {
+      console.log(this.$attrs.msg);
+    },
+    template: `
+      // v-bind="$attrs" 是 Non-prop 属性 生效
+      <div :msg="$attrs.msg">Counter</div>
+      <div v-bind="$attrs">Counter</div>
+      <div :msg1="$attrs.msg1">Counter</div>
+    `
+  });
+
+  const vm = app.mount('#root');
+</script>
+
+</html>

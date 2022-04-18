@@ -4,11 +4,11 @@
 -->
 <template>
   <svg-icon :icon="icon"></svg-icon>
-  <!-- <span>{{ generateTitle(title) }}</span> -->
+  <span>{{ generateTitle(title) }}</span>
 </template>
 
 <script setup>
-// import { generateTitle } from '@/utils/i18n';
+import { generateTitle } from '@/utils/i18n';
 import { defineProps } from 'vue';
 defineProps({
   title: {

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 21</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // 动态组件: 根据数据的变化，结合 compoent 这个标签，来随时动态切换组件的现实
+  // 配合keep-alive,让组件中数据保存
+
+  const app = Vue.createApp({
+    data() {
+      return {
+        currentItem: 'input-item'
+      }
+    },
+    methods: {
+      handleClick() {
+        this.currentItem = this.currentItem == 'input-item' ? 'common-item' : 'input-item'
+      }
+    },
+    template: `
+      <div>
+        <keep-alive>
+        <component :is="currentItem" />
+        </keep-alive>
+        <button @click="handleClick">切换</button>
+      </div>
+    `
+  });
+
+  app.component('common-item', {
+    template: `<div>hello world</div>`
+  });
+
+  app.component('input-item', {
+    template: `<input/>`
+  })
+
+  const vm = app.mount('#root');
+</script>
+
+</html>

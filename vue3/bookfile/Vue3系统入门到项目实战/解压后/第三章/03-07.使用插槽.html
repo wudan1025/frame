@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 20</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // slot 插槽
+  // slot 中使用的数据，作用域的问题
+  // 父模版里调用的数据属性，使用的都是父模版里的数据
+  // 子模版里调用的数据属性，使用的都是子模版里的数据
+  // 具名插槽
+  const app = Vue.createApp({
+    methods: {
+      handleClick() {
+        alert('createApp')
+      }
+    },
+    template: `
+      <div>
+        <myform>
+          // 在这里写监听事件作用域是当前组件
+          // 输出 createApp
+          <div @click="handleClick">提交</div>  
+        </myform>
+        <myform>
+          <span @click="handleClick">提交</span>  
+        </myform>
+        <myform>
+        </myform>
+
+      </div>
+    `
+  });
+
+  app.component('myform', {
+    methods: {
+      handleClick() {
+        alert('myform')
+      }
+    },
+    template: `
+      <div>
+        <input/>
+        // 默认值
+        <slot>default</slot>
+      </div>
+    `
+  });
+
+  const vm = app.mount('#root');
+</script>
+
+</html>
