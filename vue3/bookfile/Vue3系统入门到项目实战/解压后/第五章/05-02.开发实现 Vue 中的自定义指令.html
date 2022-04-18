@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 29</title>
+  <style>
+    .header {
+      position: absolute
+    }
+  </style>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // 自定义指令 directive
+  // 实现逻辑复用
+
+  const directives = {
+    focus: {
+      mounted(el) {
+        el.focus()
+      }
+    }
+  }
+
+  const app = Vue.createApp({
+    data() {
+      return {
+        distance: 110
+      }
+    },
+    // 局部指令
+    // 未生效 todo
+    directives,
+    template: `
+      <div>
+        <div v-pos:right="distance" class="header">
+          <input />
+        </div>
+
+        <div v-focus>
+          <input />
+        </div>
+      </div>
+    `
+  });
+
+  // binding 接收参数
+  app.directive('pos', (el, binding) => {
+    // arg 对应 right ,value 对应 distance
+    el.style[binding.arg] = (binding.value + 'px');
+  })
+
+  // 全局自定义指令
+  // 自动focus 指令
+  // app.directive('focus', {
+  //   // 有完整的声明周期
+  //   // 组件 mounted 后自动执行
+  //   mounted(el) {
+  //     el.focus()
+  //   },
+  //   beforeMount() {
+
+  //   },
+  //   beforeUpdate() {
+
+  //   },
+  //   updated() {
+
+  //   }
+  // })
+
+
+
+  const vm = app.mount('#root');
+</script>
+
+</html>
