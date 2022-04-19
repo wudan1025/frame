@@ -1,3 +1,7 @@
+<!--
+ * @LastEditors: wudan01
+ * @description: 文件描述
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,14 +50,14 @@
       // 不需要传递很多参数，只要传递一个回调函数
       // 不能获取之前数据的值, 只能获取 currentValue
       // 和 computed 区别
-      // const stop = watchEffect(() => {
-      //   console.log(nameObj.name);
-      //   console.log(nameObj.englishName);
-      //   setTimeout(() => {
-      // watch 也可以同样取消
-      //     stop();
-      //   }, 5000)
-      // })
+      const stop = watchEffect(() => {
+        console.log(nameObj.name);
+        console.log(nameObj.englishName);
+        setTimeout(() => {
+          // watch 也可以同样取消
+          stop();
+        }, 5000)
+      })
 
       const { name, englishName } = toRefs(nameObj);
 
