@@ -36,6 +36,7 @@
       })
 
       // 写法3 监听多个
+      // { immediate: true } watch 立刻执行
       watch([() => nameObj.name, () => nameObj.englishName], ([curName, curEng], [prevName, preEng]) => {
         console.log('watch', curName, prevName, '---', curEng, preEng);
       }, { immediate: true })
