@@ -17,7 +17,13 @@
 </body>
 <script>
   // watch 侦听器
+  // watch - 显式指定依赖源，依赖源更新时执行回调函数
+
   // watchEffect 侦听器，偏向于 effect
+  // watchEffect - 自动收集依赖源，依赖源更新时重新执行自身
+
+  // https://www.zhihu.com/question/462378193/answer/1916657458
+
   const app = Vue.createApp({
     setup() {
       const { reactive, watch, watchEffect, toRefs } = Vue;
