@@ -21,13 +21,89 @@
   <div id="example"></div>
 
   <!-- 如果我们需要使用 JSX，则 <script> 标签的 type 属性需要设置为 text/babel。 -->
-  <script type="text/babel">
+  <!-- <script type="text/babel">
+    // ReactDOM.render(
+    //   <h1>Hello, world!</h1>,
+    //   document.getElementById('example')
+    // );
+
+    function formatName(user) {
+      return user.firstName + ' ' + user.lastName
+    }
+
+    const user = {
+      firstName: 'Harper',
+      lastName: 'Perez'
+    }
+
+    const element = (
+      <h1>hello,{formatName(user)}</h1>
+    )
+
+    ReactDOM.render(element, document.getElementById('example'))
+  </script> -->
+
+  <!-- <script type="text/babel">
+    var myStyle = {
+      fontSize: '100px',
+      color: '#FF0000'
+    };
     ReactDOM.render(
-      <h1>Hello, world!</h1>,
+      <h1 style={myStyle}>test</h1>,
+      document.getElementById('example')
+    );
+  </script> -->
+
+  <script type="text/babel">
+    // const ele = <h1>hello</h1>;
+
+    // const root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // 18
+    // root.render(ele)
+    // const element = <h1>Hello, world</h1>;
+    // console.log(ReactDOM)
+
+    // 17 及一下
+    // ReactDOM.render(
+    //   element,
+    //   document.getElementById('example')
+    // );
+  </script>
+
+  <script type="text/babel">
+
+    // function tick() {
+    //   const el = (
+    //     <div>
+    //       <h1>hello</h1>
+    //       <h2>{new Date().getTime()}</h2>
+    //     </div>
+    //   )
+    //   ReactDOM.render(el, document.getElementById('example'))
+    // }
+
+    // setInterval(tick, 1000);
+
+  </script>
+
+  <script>
+
+    // function Welcome() {
+    //   return (<h1>welcome</h1>)
+    // }
+
+    function Welcome(props) {
+      return <h1>Hello, {props.name}</h1>;
+    }
+
+    ReactDOM.render(
+      <Welcome />,
       document.getElementById('example')
     );
   </script>
-
 </body>
 
 </html>
