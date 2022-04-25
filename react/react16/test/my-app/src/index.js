@@ -8,7 +8,8 @@ import React from 'react';
 // client.js / index.js 版本差异
 import ReactDOM, { render } from 'react-dom';
 import './index.css';
-import list from './list.js';
+import ref from './ref.js';
+// import list from './list.js';
 // import ifelse from './ifelse.js';
 // import compoent from './compoent';
 // import event from './event.js';
