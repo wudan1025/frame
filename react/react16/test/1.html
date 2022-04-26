@@ -8,12 +8,28 @@
 <head>
   <meta charset="UTF-8" />
   <title>Hello React!</title>
+
+  <!-- 16 -->
   <!-- React 的核心库 -->
-  <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
   <!-- 提供与 DOM 相关的功能 -->
-  <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
   <!-- Babel 内嵌了对 JSX 的支持 -->
+  <!-- <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script> -->
+
+  <!-- 17 -->
+  <!-- <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script> -->
+
+  <!-- <script src="https://cdn.bootcdn.net/ajax/libs/react-router-dom/5.3.0/react-router-dom.min.js"></script> -->
+  <!-- <script src="https://unpkg.com/redux@4.0.1/dist/redux.js"></script> -->
+
+  <!-- 18 -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
 </head>
 
 <body>
@@ -89,20 +105,85 @@
 
   </script>
 
-  <script>
-
-    // function Welcome() {
-    //   return (<h1>welcome</h1>)
+  <script type="text/babel">
+    // 函数组件
+    // function Welcome(props) {
+    //   return <h1>Hello,{props.name}</h1>;
     // }
 
-    function Welcome(props) {
-      return <h1>Hello, {props.name}</h1>;
+    // class 组件
+    // class Welcome extends React.Component {
+    //   render() {
+    //     return <h1>{this.props.name}</h1>
+    //   }
+    // }
+
+    // ReactDOM.render(
+    //   <Welcome name="name" />,
+    //   document.getElementById('example')
+    // );
+  </script>
+
+  <script type="text/babel">
+    // function Clock(props) {
+    //   return (
+    // <div>
+    //   <h1>hello</h1>
+    //   <h1>{props.data.toLocaleTimeString()}</h1>
+    // </div>
+    //   )
+    // }
+    class Clock extends React.Component {
+      constructor(props) {
+        // 将 props 传递到父类的构造函数中
+        super(props)
+        this.state = {
+          data: new Date()
+        }
+      }
+
+      // 组件第一次被渲染到 DOM 中的时候 挂载
+      componentDidMount() {
+        // this.timerID = setInterval(
+        this.timerID = setTimeout(
+          () => this.tick(),
+          1000
+        );
+      }
+
+      tick() {
+        // this.setState({
+        //   data: new Date(),
+        // })
+        this.setState((state, props) => {
+          console.log(state)
+          console.log(props)
+        })
+      }
+
+      // 当 DOM 中 Clock 组件被删除的时候 卸载
+      componentWillUnmount() {
+        clearInterval(this.timerID);
+      }
+
+      // 每次组件更新时 render 方法都会被调用
+      render() {
+        console.log('render')
+        return (
+          <div>
+            <h1>hello</h1>
+            <h1>{this.state.data.toLocaleTimeString()}</h1>
+          </div>
+        )
+      }
     }
 
-    ReactDOM.render(
-      <Welcome />,
-      document.getElementById('example')
-    );
+    function tick() {
+      ReactDOM.render(<Clock />, document.getElementById('example'))
+    }
+
+    tick()
+
   </script>
 </body>
 
