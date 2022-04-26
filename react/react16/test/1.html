@@ -133,57 +133,130 @@
     // </div>
     //   )
     // }
-    class Clock extends React.Component {
+
+// function FormattedDate(props) {
+//   return <h2>{props.date.toLocaleTimeString
+//     ()} </h2>
+// }
+
+// class Clock extends React.Component {
+//   constructor(props) {
+//     // 将 props 传递到父类的构造函数中
+//     super(props)
+//     this.state = {
+//       data: new Date(),
+//       name: props.name
+//     }
+//   }
+
+//   // 组件第一次被渲染到 DOM 中的时候 挂载
+//   componentDidMount() {
+//     this.timerID = setInterval(
+//       () => this.tick(),
+//       1000
+//     );
+//   }
+
+//   tick() {
+//     this.setState((state, props) => {
+//       // console.log(state);
+//       // console.log(props);
+//       return {
+//         data: new Date(),
+//         name: state.name + 1
+//       }
+
+//     })
+//   }
+
+//   // 当 DOM 中 Clock 组件被删除的时候 卸载
+//   componentWillUnmount() {
+//     clearInterval(this.timerID);
+//   }
+
+//   // 每次组件更新时 render 方法都会被调用
+//   render() {
+//     return (
+//       <div>
+//         <h1>hello</h1>
+//         <h1>{this.state.data.toLocaleTimeString()}</h1>
+//         <h1>{this.state.name}</h1>
+//         <FormattedDate date={this.state.data} />
+//       </div>
+//     )
+//   }
+// }
+
+// let name = 'name'
+// function tick() {
+//   ReactDOM.render(<Clock name={name
+//   } />, document.getElementById('example'))
+// }
+
+// tick()
+
+    // props 会修改
+    // setTimeout(() => {
+    //   name = 'test'
+    //   tick()
+    // }, 2000);
+
+  </script>
+
+
+  <script type="text/babel">
+
+    function activateLasers(e) {
+      console.log(e)
+    }
+
+    function stop(e) {
+      // 失效
+      // return false
+      e.preventDefault()
+    }
+
+    // 事件
+    let el =
+      <div>
+        <button onClick={activateLasers}>
+          激活按钮
+        </button>
+        <a href="http://www.baidu.com" onClick={stop}>默认跳转</a>
+      </div>
+
+
+    class Toggle extends React.Component {
       constructor(props) {
-        // 将 props 传递到父类的构造函数中
-        super(props)
-        this.state = {
-          data: new Date()
-        }
+        super(props);
+        this.state = { isToggleOn: true };
+
+        // 为了在回调中使用 `this`，这个绑定是必不可少的
+        this.handleClick = this.handleClick.bind(this);
       }
 
-      // 组件第一次被渲染到 DOM 中的时候 挂载
-      componentDidMount() {
-        // this.timerID = setInterval(
-        this.timerID = setTimeout(
-          () => this.tick(),
-          1000
+      handleClick() {
+        this.setState(prevState => ({
+          isToggleOn: !prevState.isToggleOn
+        }));
+      }
+
+      render() {
+        return (
+          <button onClick={this.handleClick}>
+            {this.state.isToggleOn ? 'ON' : 'OFF'}
+          </button>
         );
       }
-
-      tick() {
-        // this.setState({
-        //   data: new Date(),
-        // })
-        this.setState((state, props) => {
-          console.log(state)
-          console.log(props)
-        })
-      }
-
-      // 当 DOM 中 Clock 组件被删除的时候 卸载
-      componentWillUnmount() {
-        clearInterval(this.timerID);
-      }
-
-      // 每次组件更新时 render 方法都会被调用
-      render() {
-        console.log('render')
-        return (
-          <div>
-            <h1>hello</h1>
-            <h1>{this.state.data.toLocaleTimeString()}</h1>
-          </div>
-        )
-      }
     }
 
-    function tick() {
-      ReactDOM.render(<Clock />, document.getElementById('example'))
-    }
+    const root = ReactDOM.createRoot(
+      document.getElementById('example')
+    )
 
-    tick()
+    // root.render(el)
 
+    root.render(<Toggle />)
   </script>
 </body>
 
