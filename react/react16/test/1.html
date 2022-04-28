@@ -206,57 +206,242 @@
 
   <script type="text/babel">
 
-    function activateLasers(e) {
-      console.log(e)
-    }
+    // function activateLasers(params, e) {
+    //   console.log(params)
+    //   console.log(e)
+    // }
 
-    function stop(e) {
-      // 失效
-      // return false
-      e.preventDefault()
-    }
+    // function stop(e) {
+    //   // 失效
+    //   // return false
+    //   e.preventDefault()
+    // }
 
-    // 事件
-    let el =
-      <div>
-        <button onClick={activateLasers}>
-          激活按钮
-        </button>
-        <a href="http://www.baidu.com" onClick={stop}>默认跳转</a>
-      </div>
+    // //
+    // // 事件
+    // let el =
+    //   <div>
+    //     <button onClick={(e) => activateLasers(1, e)}>
+    //       激活按钮
+    //     </button>
+    //     <a href="http://www.baidu.com" onClick={stop}>默认跳转</a>
+    //   </div>
 
 
-    class Toggle extends React.Component {
+    // class Toggle extends React.Component {
+    //   constructor(props) {
+    //     super(props);
+    //     this.state = { isToggleOn: true };
+
+    //     // 为了在回调中使用 `this`，这个绑定是必不可少的
+    //     this.handleClick = this.handleClick.bind(this);
+    //   }
+
+    //   handleClick(...arg) {
+    //     console.log(arg)
+    //     // console.log(arguments[0])
+    //     this.setState(prevState => ({
+    //       isToggleOn: !prevState.isToggleOn
+    //     }));
+    //   }
+
+    //   render() {
+    //     return (
+    //       <button onClick={this.handleClick.bind(this, 1)}>
+    //         {this.state.isToggleOn ? 'ON' : 'OFF'}
+    //       </button>
+    //     );
+    //   }
+    // }
+
+    // const root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // // root.render(el)
+    // root.render(<Toggle />)
+  </script>
+
+  <script type="text/babel">
+    // function Mailbox(props) {
+    //   const unreadMessages = props.unreadMessages;
+    //   return (
+    //     <div>
+    //       <h1>Hello!</h1>
+    //       {unreadMessages.length > 0 &&
+    //         <h2>
+    //           You have {unreadMessages.length} unread messages.
+    //         </h2>
+    //       }
+    //     </div>
+    //   );
+    // }
+
+    // const messages = ['React', 'Re: React', 'Re:Re: React'];
+    // const root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+    // root.render(<Mailbox unreadMessages={messages} />)
+  </script>
+
+  <script type="text/babel">
+    // function WarningBanner(props) {
+    //   if (!props.warn) {
+    //     return null;
+    //   }
+
+    //   return (
+    //     <div className="warning">
+    //       Warning!
+    //     </div>
+    //   );
+    // }
+
+    // class Page extends React.Component {
+    //   constructor(props) {
+    //     super(props);
+    //     this.state = { showWarning: true };
+    //     this.handleToggleClick = this.handleToggleClick.bind(this);
+    //   }
+
+    //   handleToggleClick() {
+    //     this.setState(state => ({
+    //       showWarning: !state.showWarning
+    //     }));
+    //   }
+
+    //   componentDidUpdate() {
+    //     console.log('updata')
+    //   }
+
+    //   render() {
+    //     return (
+    //       <div>
+    //         <WarningBanner warn={this.state.showWarning} />
+    //         <button onClick={this.handleToggleClick}>
+    //           {this.state.showWarning ? 'Hide' : 'Show'}
+    //         </button>
+    //       </div>
+    //     );
+    //   }
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // root.render(<Page />)
+
+  </script>
+
+  <script type="text/babel">
+
+    // class List extends React.Component {
+    //   constructor() {
+    //     super()
+    //     this.listArr = [1, 2, 3]
+    //   }
+
+    //   render() {
+    //     let list = this.listArr.map((number, idx) => {
+    //       return <li key={idx
+    //       }>{number}</li>
+    //     })
+
+    //     console.log(list)
+    //     console.log(this.listArr)
+
+    //     return (<ul key>{list}</ul>)
+    //   }
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // root.render(<List />)
+  </script>
+
+  <script type="text/babel">
+    // 列表渲染
+    // function ListItem(props) {
+    //   console.log(props)
+    //   const value = props.value;
+    //   return (
+    //     // 错误！你不需要在这里指定 key：
+    //     <li key={value.toString()}>
+    //       {value}
+    //     </li>
+    //   );
+    // }
+
+    // function NumberList(props) {
+    //   const numbers = props.numbers;
+    //   const listItems = numbers.map((number) =>
+    //     // 正确！元素的 key 应该在这里指定：
+    //     <ListItem value={number} key={number.toString()} />
+    //   );
+    //   return (
+    //     <ul>
+    //       {listItems}
+    //     </ul>
+    //   );
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // let value = [1, 2, 3]
+    // root.render(<NumberList numbers={[1, 2, 3]} />)
+  </script>
+
+  <script type="text/babel">
+
+    class Form extends React.Component {
       constructor(props) {
-        super(props);
-        this.state = { isToggleOn: true };
+        super()
 
-        // 为了在回调中使用 `this`，这个绑定是必不可少的
-        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+          inputValue: '输出'
+        }
+
       }
 
-      handleClick() {
-        this.setState(prevState => ({
-          isToggleOn: !prevState.isToggleOn
-        }));
+      handleTextChange = (e) => {
+        console.log(e.target.value)
+        console.log(this.state.inputValue)
+
+        // 错误
+        // this.setState((state, props) => {
+        //   inputValue: e.target.value
+        // })
+
+        // 正确
+        // 需要return
+        this.setState((state, props) => {
+          return {
+            inputValue: e.target.value
+          }
+        })
+
+
       }
 
       render() {
         return (
-          <button onClick={this.handleClick}>
-            {this.state.isToggleOn ? 'ON' : 'OFF'}
-          </button>
-        );
+          <form>
+            <input type="text" value={this.state.inputValue} onChange={this.handleTextChange} />
+            <input type="submit" />
+          </form>
+        )
       }
     }
 
-    const root = ReactDOM.createRoot(
+    let root = ReactDOM.createRoot(
       document.getElementById('example')
     )
-
-    // root.render(el)
-
-    root.render(<Toggle />)
+    root.render(<Form />)
   </script>
 </body>
 
