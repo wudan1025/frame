@@ -408,6 +408,11 @@
 
       }
 
+      handleSubmit = (e) => {
+        console.log(this.state.inputValue)
+        event.preventDefault();
+      }
+
       handleTextChange = (e) => {
         console.log(e.target.value)
         console.log(this.state.inputValue)
@@ -426,13 +431,15 @@
         })
 
 
+
+
       }
 
       render() {
         return (
           <form>
             <input type="text" value={this.state.inputValue} onChange={this.handleTextChange} />
-            <input type="submit" />
+            <input type="submit" onClick={this.handleSubmit} />
           </form>
         )
       }
