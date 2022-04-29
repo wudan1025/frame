@@ -414,8 +414,9 @@
       }
 
       handleTextChange = (e) => {
-        console.log(e.target.value)
-        console.log(this.state.inputValue)
+        // console.log(e.target.value)
+        // console.log(this.state.inputValue)
+        console.log(e.target.name)
 
         // 错误
         // this.setState((state, props) => {
@@ -426,19 +427,16 @@
         // 需要return
         this.setState((state, props) => {
           return {
-            inputValue: e.target.value
+            [e.target.name]: e.target.value
           }
         })
-
-
-
-
       }
 
       render() {
         return (
           <form>
-            <input type="text" value={this.state.inputValue} onChange={this.handleTextChange} />
+            <input name="input1" value={undefined} type="text" onChange={this.handleTextChange}></input>
+            <input name="input2" type="text" value={this.state.inputValue} onChange={this.handleTextChange} />
             <input type="submit" onClick={this.handleSubmit} />
           </form>
         )
@@ -449,6 +447,76 @@
       document.getElementById('example')
     )
     root.render(<Form />)
+  </script>
+
+  <script type="text/babel">
+    // class Form extends React.Component {
+    //   constructor() {
+    //     super()
+    //     this.state = {
+    //       inputValue: ''
+    //     }
+    //   }
+
+    //   handleClick = (e) => {
+    //     console.log(e.target.value)
+    //     this.setState((state, props) => {
+    //       return {
+    //         inputValue: e.target.value
+    //       }
+    //     })
+    //   }
+
+    //   render() {
+    //     return (
+    //       < textarea value={this.state.inputValue} onChange={this.handleClick}></textarea >
+    //     )
+
+    //   }
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+    // root.render(<Form />)
+  </script>
+
+  <script type="text/babel">
+
+    // class Form extends React.Component {
+    //   constructor() {
+    //     super()
+    //     this.state = {
+    //       inputValue: ''
+    //     }
+    //   }
+
+    //   handleChange = (e) => {
+    //     console.log(e.target.value)
+
+    //     this.setState(() => {
+    //       return {
+    //         inputValue: e.target.value
+    //       }
+    //     })
+    //   }
+
+    //   render() {
+    //     return (
+    //       <select value={this.state.inputValue} onChange={this.handleChange}>
+    //         <option value="grapefruit">葡萄柚</option>
+    //         <option value="lime">酸橙</option>
+    //         <option value="coconut">椰子</option>
+    //         <option value="mango">芒果</option>
+    //       </select>
+    //     )
+    //   }
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+    // root.render(<Form />)
   </script>
 </body>
 
