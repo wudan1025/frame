@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 32</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // plugin 插件, 也是把通用性的功能封装起来
+  const myPlugin = {
+    // 插件必须要写install
+    // app.use 时， install 执行
+    install(app, options) {
+      // 扩展 名称
+      app.provide('name', 'Dell Lee');
+      // 扩展自定义指令(全局指令)
+      app.directive('focus', {
+        mounted(el) {
+          el.focus();
+        }
+      })
+      // 全局混入
+      app.mixin({
+        // 每个组件 mounted 时都会被调用
+        mounted() {
+          console.log('mixin')
+        }
+      })
+      // 全局变量 最好添加$作为变量前缀
+      app.config.globalProperties.$sayHello = 'hello world';
+    }
+  }
+
+  const app = Vue.createApp({
+    template: `
+      <my-title />
+    `
+  });
+
+  app.component('my-title', {
+    inject: ['name'],
+    mounted() {
+      // 调用全局变量
+      console.log(this.$sayHello);
+    },
+    template: `<div>{{name}}<input v-focus /></div>`
+  })
+
+  app.use(myPlugin, { name: 'dell' });
+
+  const vm = app.mount('#root');
+</script>
+
+</html>

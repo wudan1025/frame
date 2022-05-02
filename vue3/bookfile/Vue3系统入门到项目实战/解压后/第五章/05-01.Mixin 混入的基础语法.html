@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>lesson 28</title>
   <script src="https://unpkg.com/vue@next"></script>
 </head>
+
 <body>
   <div id="root"></div>
 </body>
@@ -13,13 +15,35 @@
   // mixin 混入
   // 组件 data, methods 优先级高于 mixin data, methods 优先级
   // 生命周期函数，先执行 mixin 里面的，再执行组件里面的
-  // 自定义的属性，组件种的属性优先级高于 mixin 属性的优先级
+  // 自定义的属性，组件中的属性优先级高于 mixin 属性的优先级
+
+  // 全局mixin,直接使用
+  app.mixin({
+    data() {
+      return {
+        number: 2,
+        count: 222
+      }
+    },
+    created() {
+      console.log('minin created')
+    },
+    methods: {
+      handleClick() {
+        console.log('mixin handleClick')
+      }
+    }
+  })
+
+
   const myMixin = {
     number: 1
   }
 
   const app = Vue.createApp({
+    // 局部mixin,只能在本组件中使用
     mixins: [myMixin],
+    // 这种写法自定义属性
     number: 2,
     template: `
       <div>
@@ -28,10 +52,13 @@
     `
   });
 
+  // 修改自定义number属性的优先级
   app.config.optionMergeStrategies.number = (mixinVal, appValue) => {
+    // mixin 中 优先级比 组件中的高
     return mixinVal || appValue;
   }
 
   const vm = app.mount('#root');
 </script>
+
 </html>

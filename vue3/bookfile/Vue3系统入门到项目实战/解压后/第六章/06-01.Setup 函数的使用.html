@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 34</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // 对数据做校验的插件
+  const app = Vue.createApp({
+    template: `
+      <div @click="handleClick">{{name}}</div>
+    `,
+    methods: {
+      test() {
+        // 从外部调用 setup
+        console.log(this.$options.setup());
+      }
+    },
+    mounted() {
+      this.test();
+    },
+    // created 实例被完全初始化之前
+    //  todo 如何理解
+    // 实例被创建之前执行的函数 对应生命周期是？
+    // 不能写this
+    setup(props, context) {
+      return {
+        name: 'dell',
+        handleClick: () => {
+          alert(123)
+        }
+      }
+    }
+  });
+  const vm = app.mount('#root');
+</script>
+
+</html>

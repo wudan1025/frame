@@ -1,0 +1,523 @@
+<!--
+ * @LastEditors: wudan01
+ * @description: 文件描述
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello React!</title>
+
+  <!-- 16 -->
+  <!-- React 的核心库 -->
+  <!-- 提供与 DOM 相关的功能 -->
+  <!-- Babel 内嵌了对 JSX 的支持 -->
+  <!-- <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script> -->
+
+  <!-- 17 -->
+  <!-- <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script> -->
+
+  <!-- <script src="https://cdn.bootcdn.net/ajax/libs/react-router-dom/5.3.0/react-router-dom.min.js"></script> -->
+  <!-- <script src="https://unpkg.com/redux@4.0.1/dist/redux.js"></script> -->
+
+  <!-- 18 -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+</head>
+
+<body>
+
+  <div id="example"></div>
+
+  <!-- 如果我们需要使用 JSX，则 <script> 标签的 type 属性需要设置为 text/babel。 -->
+  <!-- <script type="text/babel">
+    // ReactDOM.render(
+    //   <h1>Hello, world!</h1>,
+    //   document.getElementById('example')
+    // );
+
+    function formatName(user) {
+      return user.firstName + ' ' + user.lastName
+    }
+
+    const user = {
+      firstName: 'Harper',
+      lastName: 'Perez'
+    }
+
+    const element = (
+      <h1>hello,{formatName(user)}</h1>
+    )
+
+    ReactDOM.render(element, document.getElementById('example'))
+  </script> -->
+
+  <!-- <script type="text/babel">
+    var myStyle = {
+      fontSize: '100px',
+      color: '#FF0000'
+    };
+    ReactDOM.render(
+      <h1 style={myStyle}>test</h1>,
+      document.getElementById('example')
+    );
+  </script> -->
+
+  <script type="text/babel">
+    // const ele = <h1>hello</h1>;
+
+    // const root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // 18
+    // root.render(ele)
+    // const element = <h1>Hello, world</h1>;
+    // console.log(ReactDOM)
+
+    // 17 及一下
+    // ReactDOM.render(
+    //   element,
+    //   document.getElementById('example')
+    // );
+  </script>
+
+  <script type="text/babel">
+
+    // function tick() {
+    //   const el = (
+    //     <div>
+    //       <h1>hello</h1>
+    //       <h2>{new Date().getTime()}</h2>
+    //     </div>
+    //   )
+    //   ReactDOM.render(el, document.getElementById('example'))
+    // }
+
+    // setInterval(tick, 1000);
+
+  </script>
+
+  <script type="text/babel">
+    // 函数组件
+    // function Welcome(props) {
+    //   return <h1>Hello,{props.name}</h1>;
+    // }
+
+    // class 组件
+    // class Welcome extends React.Component {
+    //   render() {
+    //     return <h1>{this.props.name}</h1>
+    //   }
+    // }
+
+    // ReactDOM.render(
+    //   <Welcome name="name" />,
+    //   document.getElementById('example')
+    // );
+  </script>
+
+  <script type="text/babel">
+    // function Clock(props) {
+    //   return (
+    // <div>
+    //   <h1>hello</h1>
+    //   <h1>{props.data.toLocaleTimeString()}</h1>
+    // </div>
+    //   )
+    // }
+
+// function FormattedDate(props) {
+//   return <h2>{props.date.toLocaleTimeString
+//     ()} </h2>
+// }
+
+// class Clock extends React.Component {
+//   constructor(props) {
+//     // 将 props 传递到父类的构造函数中
+//     super(props)
+//     this.state = {
+//       data: new Date(),
+//       name: props.name
+//     }
+//   }
+
+//   // 组件第一次被渲染到 DOM 中的时候 挂载
+//   componentDidMount() {
+//     this.timerID = setInterval(
+//       () => this.tick(),
+//       1000
+//     );
+//   }
+
+//   tick() {
+//     this.setState((state, props) => {
+//       // console.log(state);
+//       // console.log(props);
+//       return {
+//         data: new Date(),
+//         name: state.name + 1
+//       }
+
+//     })
+//   }
+
+//   // 当 DOM 中 Clock 组件被删除的时候 卸载
+//   componentWillUnmount() {
+//     clearInterval(this.timerID);
+//   }
+
+//   // 每次组件更新时 render 方法都会被调用
+//   render() {
+//     return (
+//       <div>
+//         <h1>hello</h1>
+//         <h1>{this.state.data.toLocaleTimeString()}</h1>
+//         <h1>{this.state.name}</h1>
+//         <FormattedDate date={this.state.data} />
+//       </div>
+//     )
+//   }
+// }
+
+// let name = 'name'
+// function tick() {
+//   ReactDOM.render(<Clock name={name
+//   } />, document.getElementById('example'))
+// }
+
+// tick()
+
+    // props 会修改
+    // setTimeout(() => {
+    //   name = 'test'
+    //   tick()
+    // }, 2000);
+
+  </script>
+
+
+  <script type="text/babel">
+
+    // function activateLasers(params, e) {
+    //   console.log(params)
+    //   console.log(e)
+    // }
+
+    // function stop(e) {
+    //   // 失效
+    //   // return false
+    //   e.preventDefault()
+    // }
+
+    // //
+    // // 事件
+    // let el =
+    //   <div>
+    //     <button onClick={(e) => activateLasers(1, e)}>
+    //       激活按钮
+    //     </button>
+    //     <a href="http://www.baidu.com" onClick={stop}>默认跳转</a>
+    //   </div>
+
+
+    // class Toggle extends React.Component {
+    //   constructor(props) {
+    //     super(props);
+    //     this.state = { isToggleOn: true };
+
+    //     // 为了在回调中使用 `this`，这个绑定是必不可少的
+    //     this.handleClick = this.handleClick.bind(this);
+    //   }
+
+    //   handleClick(...arg) {
+    //     console.log(arg)
+    //     // console.log(arguments[0])
+    //     this.setState(prevState => ({
+    //       isToggleOn: !prevState.isToggleOn
+    //     }));
+    //   }
+
+    //   render() {
+    //     return (
+    //       <button onClick={this.handleClick.bind(this, 1)}>
+    //         {this.state.isToggleOn ? 'ON' : 'OFF'}
+    //       </button>
+    //     );
+    //   }
+    // }
+
+    // const root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // // root.render(el)
+    // root.render(<Toggle />)
+  </script>
+
+  <script type="text/babel">
+    // function Mailbox(props) {
+    //   const unreadMessages = props.unreadMessages;
+    //   return (
+    //     <div>
+    //       <h1>Hello!</h1>
+    //       {unreadMessages.length > 0 &&
+    //         <h2>
+    //           You have {unreadMessages.length} unread messages.
+    //         </h2>
+    //       }
+    //     </div>
+    //   );
+    // }
+
+    // const messages = ['React', 'Re: React', 'Re:Re: React'];
+    // const root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+    // root.render(<Mailbox unreadMessages={messages} />)
+  </script>
+
+  <script type="text/babel">
+    // function WarningBanner(props) {
+    //   if (!props.warn) {
+    //     return null;
+    //   }
+
+    //   return (
+    //     <div className="warning">
+    //       Warning!
+    //     </div>
+    //   );
+    // }
+
+    // class Page extends React.Component {
+    //   constructor(props) {
+    //     super(props);
+    //     this.state = { showWarning: true };
+    //     this.handleToggleClick = this.handleToggleClick.bind(this);
+    //   }
+
+    //   handleToggleClick() {
+    //     this.setState(state => ({
+    //       showWarning: !state.showWarning
+    //     }));
+    //   }
+
+    //   componentDidUpdate() {
+    //     console.log('updata')
+    //   }
+
+    //   render() {
+    //     return (
+    //       <div>
+    //         <WarningBanner warn={this.state.showWarning} />
+    //         <button onClick={this.handleToggleClick}>
+    //           {this.state.showWarning ? 'Hide' : 'Show'}
+    //         </button>
+    //       </div>
+    //     );
+    //   }
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // root.render(<Page />)
+
+  </script>
+
+  <script type="text/babel">
+
+    // class List extends React.Component {
+    //   constructor() {
+    //     super()
+    //     this.listArr = [1, 2, 3]
+    //   }
+
+    //   render() {
+    //     let list = this.listArr.map((number, idx) => {
+    //       return <li key={idx
+    //       }>{number}</li>
+    //     })
+
+    //     console.log(list)
+    //     console.log(this.listArr)
+
+    //     return (<ul key>{list}</ul>)
+    //   }
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // root.render(<List />)
+  </script>
+
+  <script type="text/babel">
+    // 列表渲染
+    // function ListItem(props) {
+    //   console.log(props)
+    //   const value = props.value;
+    //   return (
+    //     // 错误！你不需要在这里指定 key：
+    //     <li key={value.toString()}>
+    //       {value}
+    //     </li>
+    //   );
+    // }
+
+    // function NumberList(props) {
+    //   const numbers = props.numbers;
+    //   const listItems = numbers.map((number) =>
+    //     // 正确！元素的 key 应该在这里指定：
+    //     <ListItem value={number} key={number.toString()} />
+    //   );
+    //   return (
+    //     <ul>
+    //       {listItems}
+    //     </ul>
+    //   );
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+
+    // let value = [1, 2, 3]
+    // root.render(<NumberList numbers={[1, 2, 3]} />)
+  </script>
+
+  <script type="text/babel">
+
+    class Form extends React.Component {
+      constructor(props) {
+        super()
+
+        this.state = {
+          inputValue: '输出'
+        }
+
+      }
+
+      handleSubmit = (e) => {
+        console.log(this.state.inputValue)
+        event.preventDefault();
+      }
+
+      handleTextChange = (e) => {
+        // console.log(e.target.value)
+        // console.log(this.state.inputValue)
+        console.log(e.target.name)
+
+        // 错误
+        // this.setState((state, props) => {
+        //   inputValue: e.target.value
+        // })
+
+        // 正确
+        // 需要return
+        this.setState((state, props) => {
+          return {
+            [e.target.name]: e.target.value
+          }
+        })
+      }
+
+      render() {
+        return (
+          <form>
+            <input name="input1" value={undefined} type="text" onChange={this.handleTextChange}></input>
+            <input name="input2" type="text" value={this.state.inputValue} onChange={this.handleTextChange} />
+            <input type="submit" onClick={this.handleSubmit} />
+          </form>
+        )
+      }
+    }
+
+    let root = ReactDOM.createRoot(
+      document.getElementById('example')
+    )
+    root.render(<Form />)
+  </script>
+
+  <script type="text/babel">
+    // class Form extends React.Component {
+    //   constructor() {
+    //     super()
+    //     this.state = {
+    //       inputValue: ''
+    //     }
+    //   }
+
+    //   handleClick = (e) => {
+    //     console.log(e.target.value)
+    //     this.setState((state, props) => {
+    //       return {
+    //         inputValue: e.target.value
+    //       }
+    //     })
+    //   }
+
+    //   render() {
+    //     return (
+    //       < textarea value={this.state.inputValue} onChange={this.handleClick}></textarea >
+    //     )
+
+    //   }
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+    // root.render(<Form />)
+  </script>
+
+  <script type="text/babel">
+
+    // class Form extends React.Component {
+    //   constructor() {
+    //     super()
+    //     this.state = {
+    //       inputValue: ''
+    //     }
+    //   }
+
+    //   handleChange = (e) => {
+    //     console.log(e.target.value)
+
+    //     this.setState(() => {
+    //       return {
+    //         inputValue: e.target.value
+    //       }
+    //     })
+    //   }
+
+    //   render() {
+    //     return (
+    //       <select value={this.state.inputValue} onChange={this.handleChange}>
+    //         <option value="grapefruit">葡萄柚</option>
+    //         <option value="lime">酸橙</option>
+    //         <option value="coconut">椰子</option>
+    //         <option value="mango">芒果</option>
+    //       </select>
+    //     )
+    //   }
+    // }
+
+    // let root = ReactDOM.createRoot(
+    //   document.getElementById('example')
+    // )
+    // root.render(<Form />)
+  </script>
+</body>
+
+</html>

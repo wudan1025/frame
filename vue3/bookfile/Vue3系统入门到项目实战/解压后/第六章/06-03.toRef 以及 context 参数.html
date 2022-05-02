@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lesson 36</title>
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  // toRef, context
+  const app = Vue.createApp({
+    methods: {
+      handleChange() {
+        alert('change');
+      }
+    },
+    // template: `<child @change="handleChange">parent</child>`,
+    template: `<child >parent</child>`,
+  });
+
+  app.component('child', {
+    // template: '<div @click="handleClick">{{age}}</div>',
+    // template: '<div>{{age}}</div>',
+    setup(props, context) {
+      const { reactive, toRef } = Vue;
+      const data = reactive({ name: 'dell' })
+      // data 一开始没有这个属性，添加后有了
+      const age = toRef(data, 'age');
+
+      setTimeout(() => {
+        age.value = 'lee'
+      }, 2000);
+
+      const { h } = Vue;
+      const { attrs, slots, emit } = context;
+      // attrs 接受 父组件传递的参数(没有写在 prop 中) none-props 属性
+      // slots 插槽
+      console.log(slots.default())
+      // return () => h('div', {}, ['123'])
+      return () => h('div', {}, slots.default())
+
+      // function handleClick() { emit('change'); }
+      // return { handleClick, age }
+    }
+  })
+  const vm = app.mount('#root');
+</script>
+
+</html>
