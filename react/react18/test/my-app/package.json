@@ -15,6 +15,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "eject注释": "弹出项目配置文件",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
