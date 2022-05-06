@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 
-
-let root = ReactDOM.createRoot(
-    document.getElementById('hooks')
-)
-
-
+let root = ReactDOM.createRoot(document.getElementById('hooks'));
 
 // function Example() {
 //     // 声明一个新的叫做 “count” 的 state 变量
@@ -35,8 +30,6 @@ let root = ReactDOM.createRoot(
 
 // root.render(<Example />)
 
-
-
 // function FriendStatus(props) {
 //     const [isOnline, setIsOnline] = useState(null);
 
@@ -59,41 +52,38 @@ let root = ReactDOM.createRoot(
 
 // root.render(<FriendStatus />)
 
-
 function FriendStatus(props) {
-    const isOnline = useFriendStatus(props.friend.id);
+  const isOnline = useFriendStatus(props.friend.id);
 
-    if (isOnline === null) {
-        return 'Loading...';
-    }
-    return isOnline ? 'Online' : 'Offline';
+  if (isOnline === null) {
+    return 'Loading...';
+  }
+  return isOnline ? 'Online' : 'Offline';
 }
 
 function FriendListItem(props) {
-    const isOnline = useFriendStatus(props.friend.id);
+  const isOnline = useFriendStatus(props.friend.id);
 
-    return (
-        <li style={{ color: isOnline ? 'green' : 'black' }}>
-            {props.friend.name}
-        </li>
-    );
+  return (
+    <li style={{ color: isOnline ? 'green' : 'black' }}>{props.friend.name}</li>
+  );
 }
 
 function useFriendStatus(friendID) {
-    const [isOnline, setIsOnline] = useState(null);
+  const [isOnline, setIsOnline] = useState(null);
 
-    function handleStatusChange(status) {
-        setIsOnline(status.isOnline);
-    }
+  function handleStatusChange(status) {
+    setIsOnline(status.isOnline);
+  }
 
-    useEffect(() => {
-        ChatAPI.subscribeToFriendStatus(friendID, handleStatusChange);
-        return () => {
-            ChatAPI.unsubscribeFromFriendStatus(friendID, handleStatusChange);
-        };
-    });
+  useEffect(() => {
+    ChatAPI.subscribeToFriendStatus(friendID, handleStatusChange);
+    return () => {
+      ChatAPI.unsubscribeFromFriendStatus(friendID, handleStatusChange);
+    };
+  });
 
-    return isOnline;
+  return isOnline;
 }
 
-root.render(<useFriendStatus />)
+root.render(<useFriendStatus />);
