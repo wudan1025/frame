@@ -17,6 +17,7 @@ module.exports = {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
+
   // parser: 'babel-eslint',
   // parser: '@babel/eslint-parser',
   // parser: '@typescript-eslint/parser',
@@ -24,6 +25,10 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
+  plugins: [
+    // ...
+    'react-hooks',
+  ],
   rules: {
     'no-undef': 0,
     'no-case-declarations': 0,
@@ -38,5 +43,7 @@ module.exports = {
     'no-unused-vars': 0,
     'no-unreachable': 0,
     'no-dupe-class-members': 0,
+    'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
+    'react-hooks/exhaustive-deps': 'warn', // 检查 effect 的依赖
   },
 };
