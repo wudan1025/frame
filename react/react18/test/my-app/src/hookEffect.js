@@ -6,9 +6,10 @@ let root = ReactDOM.createRoot(document.getElementById('hookEffect'));
 function Clock() {
   let [date, setDate] = useState(0);
   useEffect(() => {
-    // let result = new Date();
+    let result1 = new Date();
+    console.log(result1)
     let result = 1;
-    setDate(result);
+    setDate(result1);
   });
 
   return (
