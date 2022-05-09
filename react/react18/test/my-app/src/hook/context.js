@@ -1,15 +1,3 @@
-# 定义
-> 跨组件传递信息，减少层级嵌套
-
-# 使用
-### 基础使用
-> React.createContext 创建 context
-
-> <name.Provider value={}> 注入组件
-
->  useContext(name) 使用
-
-```
 import React, { useState, useEffect, useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 
@@ -39,11 +27,3 @@ root.render(
     <Second></Second>
   </appContext.Provider>
 );
-
-```
-
-### 可变context
-> https://zh-hans.reactjs.org/docs/context.html#dynamic-context
-
-### 多个context
-> https://zh-hans.reactjs.org/docs/context.html#consuming-multiple-contexts

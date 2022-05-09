@@ -7,8 +7,10 @@
 import React from 'react';
 // client.js / index.js 版本差异
 import ReactDOM, { render } from 'react-dom';
-import './index.css';
-import hookEffect from './hookEffect.js';
+import useCustor from './hook/useCustor.js';
+// import HOC from './hook/HOC.js';
+// import context from './hook/context.js';
+// import hookEffect from './hookEffect.js';
 // import hookTodolist from './hookTodolist.js';
 // import todoList from './todoList.js'
 // import hooks from './hooks.js';
