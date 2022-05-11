@@ -7,6 +7,7 @@ import { useHistory, useLocation, useParams, useRouteMatch } from "react-router-
 
 export const Header: React.FC = () => {
   const history = useHistory();
+  
   const location = useLocation();
   const params = useParams();
   const match = useRouteMatch();
