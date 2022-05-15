@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import robots from "./mockdata/robots.json";
 import Robot from "./components/Robot";
 import styles from "./App.module.css";
+console.log(styles)
 
 function App() {
   return (
