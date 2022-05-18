@@ -1,5 +1,3 @@
-// import { createStore } from 'redux'
-
 import { configureStore } from '@reduxjs/toolkit'
 import testReducer from './testReducer'
 
@@ -8,6 +6,5 @@ export const store = configureStore({
         test: testReducer
     }
 })
-
 
 export default store
