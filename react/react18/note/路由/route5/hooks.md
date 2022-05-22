@@ -9,5 +9,8 @@ const history = useHistory();
 # useLocation
 
 # useParams
+> useParams返回URL参数的键/值对的对象
+
+> 使用它来访问当前<Route>的match.params
 
 # useRouteMatch
