@@ -63,21 +63,34 @@ ReactDOM.render(
 
 > babel 将 jsx 转为 React.createElement()
 
-> 创建节点的两种方式
+> react 是普通的js 对象，用来描述在屏幕上看到的内容
+
+> ReactDOM来确保浏览器中的真实DOM数据和React元素保持一致
+
+> 转化
 ```
-const element = (
-  <h1 className="greeting">
-    Hello, world!
-  </h1>
-);
+// jsx
+<h1 className="title" style={{color:'red'}}>hello</h1>
 
-等效
+// babel 转义后
+React.createElement("h1", {
+  className: "title",
+  style: {
+    color: 'red'
+  }
+}, "hello");
 
-const element = React.createElement(
-  'h1',
-  {className: 'greeting'},
-  'Hello, world!'
-);
+// 返回的结果
+{
+  type:'h1',
+  props:{
+    className: "title",
+    style: {
+      color: 'red'
+    }
+  },
+  children:"hello"
+}
 ```
 
 
