@@ -7,7 +7,8 @@
 import React from 'react';
 // client.js / index.js 版本差异
 import ReactDOM, { render } from 'react-dom';
-import propsChild from "./basic/propsChild.js"
+import testSetstate from './basic/testSetState'
+// import propsChild from "./basic/propsChild.js"
 // import useCustor from './hook/useCustor.js';
 // import HOC from './hook/HOC.js';
 // import context from './hook/context.js';
