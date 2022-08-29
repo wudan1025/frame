@@ -26,4 +26,8 @@ import ReactDOM, { render } from 'react-dom';
 // import test from './test';
 // import reportWebVitals from './reportWebVitals';
 
-import style from './basic/style';
+// import style from './basic/style';
+
+// import basicJsx from './basic/basicJsx'
+// import basicCondition from './basic/basicCondition';
+import event from './basic/event';
