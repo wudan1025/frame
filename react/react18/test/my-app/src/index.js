@@ -1,5 +1,5 @@
 /*
- * @LastEditors: wudan01
+ * @LastEditors: wudan01 wudan01@100tal.com
  * @description: 文件描述
  */
 // 入口文件
@@ -30,4 +30,5 @@ import ReactDOM, { render } from 'react-dom';
 
 // import basicJsx from './basic/basicJsx'
 // import basicCondition from './basic/basicCondition';
-import event from './basic/event';
+// import event from './basic/event';
+import form from './basic/form'
