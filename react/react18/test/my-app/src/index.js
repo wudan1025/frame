@@ -32,4 +32,5 @@ import ReactDOM, { render } from 'react-dom';
 // import basicCondition from './basic/basicCondition';
 // import event from './basic/event';
 // import form from './basic/form'
-import props2 from './basic/props2';
+// import props2 from './basic/props2';
+import state from './basic/state';
