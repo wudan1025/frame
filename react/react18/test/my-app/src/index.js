@@ -16,8 +16,7 @@ import ReactDOM, { render } from 'react-dom';
 // import hookTodolist from './hookTodolist.js';
 // import todoList from './todoList.js'
 // import hooks from './hooks.js';
-// import ref from './ref.js';
-// import list from './list.js';
+/// import list from './list.js';
 // import ifelse from './ifelse.js';
 // import compoent from './compoent';
 // import event from './event.js';
@@ -33,4 +32,6 @@ import ReactDOM, { render } from 'react-dom';
 // import event from './basic/event';
 // import form from './basic/form'
 // import props2 from './basic/props2';
-import state from './basic/state';
+// import state from './basic/state';
+// import ref from './basic/ref.js';
+import portals from './basic/portals';
