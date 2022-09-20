@@ -34,4 +34,6 @@ import ReactDOM, { render } from 'react-dom';
 // import props2 from './basic/props2';
 // import state from './basic/state';
 // import ref from './basic/ref.js';
-import portals from './basic/portals';
+// import portals from './basic/portals';
+
+import contextHook from './basic/context';
