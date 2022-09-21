@@ -36,4 +36,5 @@ import ReactDOM, { render } from 'react-dom';
 // import ref from './basic/ref.js';
 // import portals from './basic/portals';
 
-import contextHook from './basic/context';
+// import contextHook from './basic/context';
+import lazy from './basic/lazy';

@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 let myContext = React.createContext('1');
 let myContext2 = React.createContext('2');
-function MycontextFn() {
+export default function MycontextFn() {
   // 修改值
   let [contextInitVal, setContextInitVal] = useState(1);
   const handleChange = (e) => {
@@ -49,5 +49,5 @@ function Layer2() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MycontextFn></MycontextFn>);
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<MycontextFn></MycontextFn>);
