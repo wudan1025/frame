@@ -37,4 +37,6 @@ import ReactDOM, { render } from 'react-dom';
 // import portals from './basic/portals';
 
 // import contextHook from './basic/context';
-import lazy from './basic/lazy';
+// import lazy from './basic/lazy';
+// import Hoc from './compoent/hoc';
+import renderProps from './compoent/renderProps';
