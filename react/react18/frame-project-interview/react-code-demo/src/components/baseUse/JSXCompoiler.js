@@ -26,7 +26,6 @@
 //     return <li key={item.id}>index {index}; title {item.title}</li>
 // })}</ul>
 
-
 // // 总结
 // React.createElement('div', null, [child1, child2, child3])
 // React.createElement('div', {...}, child1, child2, child3)
